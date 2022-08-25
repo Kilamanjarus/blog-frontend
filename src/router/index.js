@@ -6,6 +6,7 @@ import LoginView from "../views/LoginView.vue";
 import LogoutView from "../views/LogoutView.vue";
 import PostsIndex from "../views/PostsIndex.vue";
 import PostsNew from "../views/PostsNew.vue";
+import PostsShow from "../views/PostsShow.vue";
 
 
 const routes = [
@@ -39,11 +40,16 @@ const routes = [
     name: 'posts',
     component: PostsIndex
   },
-  // {
-  //   path: '/posts/new',
-  //   name: 'posts',
-  //   component: PostsNew
-  // },
+  {
+    path: '/posts/new',
+    name: 'posts-new',
+    component: PostsNew
+  },
+  {
+    path: '/posts/:id',
+    name: 'posts-show',
+    component: PostsShow
+  },
   {
     path: '/about',
     name: 'about',

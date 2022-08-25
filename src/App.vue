@@ -9,7 +9,9 @@
   </nav>
   <div>
     <router-link to="/posts">Posts</router-link> |
-    <router-link to="/posts/new">New Post</router-link>
+    <router-link to="/posts/new">New Post</router-link> |
+    <!-- <router-link to="/posts/show">Show Post</router-link> | -->
+
   </div>
   <router-view />
 </template>

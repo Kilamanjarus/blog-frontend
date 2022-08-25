@@ -16,7 +16,7 @@ export default {
     postsIndex: function () {
       console.log(`Pulling Blogs`)
       axios.get("http://localhost:3000/posts").then(response => {
-        console.log(`response.data`)
+        console.log(response.data)
         this.posts = response.data
       })
     }
@@ -27,9 +27,10 @@ export default {
 <template>
   <div class="home">
     <h1>{{ message }}</h1>
-    <p v-for="post in posts">
-      {{ post }}
-    </p>
+    <div v-for="post in posts">
+      <p><a v-bind:href="`/posts/${post.id}`">{{ post.title }}</a></p>
+      <p>{{ post }}</p>
+    </div>
   </div>
 </template>
 

@@ -3,15 +3,23 @@ export default {
   data: function () {
     return {
       message: "Welcome to Vue.js!",
-      newUserParams: {},
-
+      newPostParams: {},
+      errors: []
     };
   },
   created: function () { },
   methods: {
-    returnTest: function () {
-      return this.test;
-    }
+    submit: function () {
+      axios
+        .post("/posts", this.newPostParams)
+        .then((response) => {
+          console.log(response.data);
+          this.$router.push("/login");
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
+    },
   },
 };
 </script>
@@ -36,12 +44,10 @@ export default {
         <input type="text" v-model="newPostParams.body" />
       </div>
       <div>
-        <label>Image URL:</label>
-        <input type="text" v-model="newPostParams.image" />
+        <label>Image Url:</label>
+        <input type="text" v-model="newPostParams.image_url" />
       </div>
       <input type="submit" value="Submit" />
     </form>
   </div>
 </template>
-<style>
-</style>
