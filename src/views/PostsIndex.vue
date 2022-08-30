@@ -26,12 +26,22 @@ export default {
 
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
-    <div v-for="post in posts">
-      <p><a v-bind:href="`/posts/${post.id}`">{{ post.title }}</a></p>
-      <p>{{ post }}</p>
+    <h1>{{  message  }}</h1>
+    <div>
+      <div class="row">
+        <div class="col-sm-6" v-for="post in posts">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{  post.title  }}</h5>
+              <p class="card-text">{{  post.body  }}</p>
+              <a v-bind:href="`/posts/${post.id}`" class="btn btn-primary">Show More!</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
 </template>
 
 <style>

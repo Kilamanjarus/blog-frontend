@@ -1,16 +1,24 @@
-<template>
+<script>
+export default {
+  data: function () {
+    return {
+      message: "Welcome to the Blog!",
+    };
+  },
+  created: function () { },
+  methods: {},
+};
+</script>
 
+<template>
+  <div class="home">
+    <h1>{{  message  }}</h1>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-import returnTest from './TestView.vue'
-
-export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+<style>
+</style>

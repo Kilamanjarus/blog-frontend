@@ -20,13 +20,15 @@ export default {
         this.post = response.data
       })
     }
-  },
+  }
 };
 </script>
 
 <template>
   <div class="home">
-    <h1>{{ post }}</h1>
+    <h1>{{  post  }}</h1>
+    <br />
+    <a v-bind:href="`/posts/${post.id}/edit`">Edit</a>
   </div>
 </template>
 
