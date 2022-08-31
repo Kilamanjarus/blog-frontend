@@ -27,9 +27,10 @@
                 Profile
               </button>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                <li><a class="dropdown-item active" href="/signup">Signup</a></li>
-                <li><a class="dropdown-item active" href="/login">Login</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li v-if="!isLoggedIn"><a class="dropdown-item active" href="/signup">Signup</a></li>
+                <li v-if="!isLoggedIn"><a class="dropdown-item active" href="/login">Login</a></li>
+                <li v-if="isLoggedIn"><a class="dropdown-item" href="#">Profile</a></li>
+                <li v-if="isLoggedIn"><a class="dropdown-item" href="/logout">Logout</a></li>
               </ul>
             </div>
           </ul>
@@ -37,8 +38,27 @@
       </div>
     </nav>
   </div>
+  <div>
+    <p>Am i logged in? {{ isLoggedIn }}</p>
+
+  </div>
   <router-view />
 </template>
+
+<script>
+export default {
+  data: function () {
+    return {
+      isLoggedIn: !!localStorage.jwt
+    }
+  },
+  watch: {
+    $route: function () {
+      this.isLoggedIn = !!localStorage.jwt
+    }
+  }
+}
+</script>
 
 <style>
 #app {

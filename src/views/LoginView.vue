@@ -14,6 +14,7 @@ export default {
         .post("/sessions", this.newSessionParams)
         .then((response) => {
           axios.defaults.headers.common["Authorization"] = "Bearer " + response.data.jwt;
+          console.log(response.data)
           localStorage.setItem("jwt", response.data.jwt);
           this.$router.push("/");
         })
